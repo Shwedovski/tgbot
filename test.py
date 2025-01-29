@@ -1,7 +1,10 @@
 from telegram import Update, Poll
 from telegram.ext import Application, CommandHandler, CallbackContext
+import os
+from dotenv import load_dotenv
 
-TOKEN = "7908032837:AAHcXz8_yPBILErqpBjCi2EE2aUyNI87Xqc"
+load_dotenv()
+TOKEN = os.getenv("BOT_TOKEN")
 
 async def start(update: Update, context: CallbackContext):
     await update.message.reply_text("Напиши /game чтобы создать опрос")
